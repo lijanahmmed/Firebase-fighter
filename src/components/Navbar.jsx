@@ -2,7 +2,6 @@ import { Link, NavLink } from "react-router";
 import logo from "../assets/img/firebase-logo.png";
 import MyContainer from "./MyContainer";
 import MyLink from "./MyLink";
-// import MyLink from "./MyLink";
 
 const Navbar = () => {
   return (
