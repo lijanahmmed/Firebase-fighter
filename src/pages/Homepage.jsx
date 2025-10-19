@@ -29,9 +29,6 @@ const Homepage = () => {
         </button>
       </div>
 
-      <div className="absolute bottom-6 text-white text-sm animate-pulse">
-        Developed by <span className="font-bold">Utsho 💎</span>
-      </div>
     </div>
   );
 };

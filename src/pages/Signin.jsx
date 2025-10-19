@@ -22,29 +22,23 @@ const Signin = () => {
     e.preventDefault();
     const email = e.target.email?.value;
     const password = e.target.password?.value;
-    console.log({ email, password });
     signInWithEmailAndPassword(auth, email, password)
       .then((res) => {
-        console.log(res);
         setUser(res.user);
         toast.success("Signin successful");
       })
       .catch((e) => {
-        console.log(e);
         toast.error(e.message);
       });
   };
 
   const handleGoogleSignin = () => {
-    console.log("google signin");
     signInWithPopup(auth, googleProvider)
       .then((res) => {
-        console.log(res);
         setUser(res.user);
         toast.success("Signin successful");
       })
       .catch((e) => {
-        console.log(e);
         toast.error(e.message);
       });
   };
@@ -59,8 +53,6 @@ const Signin = () => {
         toast.error(e.message);
       });
   };
-
-  console.log(user);
 
   return (
     <div className="min-h-[calc(100vh-20px)] flex items-center justify-center bg-gradient-to-br from-blue-500 via-indigo-600 to-purple-600 relative overflow-hidden">

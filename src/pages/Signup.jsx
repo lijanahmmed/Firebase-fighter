@@ -40,7 +40,7 @@ const Signup = () => {
             "User already exists in the database. Etai bastob haahahahaha"
           );
         } else if (e.code === "auth/weak-password") {
-          toast.error("Bhai tomake at least 6 ta digit er pass dite hobe");
+          toast.error("Input at least 6 ta digit");
         } else if (e.code === "auth/invalid-email") {
           toast.error("Invalid email format. Please check your email.");
         } else if (e.code === "auth/user-not-found") {
