@@ -82,7 +82,6 @@ const Signin = () => {
         toast.success("Signin successful");
       })
       .catch((e) => {
-        console.log(e);
         toast.error(e.message);
       });
   };
@@ -100,7 +99,6 @@ const Signin = () => {
       });
   };
 
-  // console.log();
 
   return (
     <div className="min-h-[calc(100vh-20px)] flex items-center justify-center bg-gradient-to-br from-blue-500 via-indigo-600 to-purple-600 relative overflow-hidden">
