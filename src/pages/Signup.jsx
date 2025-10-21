@@ -25,18 +25,6 @@ const Signup = () => {
     const email = e.target.email?.value;
     const password = e.target.password?.value;
 
-    console.log("signup function entered", {
-      email,
-      displayName,
-      photoURL,
-      password,
-    });
-
-    // console.log(password.length);
-    // if (password.length < 6) {
-    //   toast.error("Password should be at least 6 digit");
-    //   return;
-    // }
 
     const regExp =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#^()\-_=+])[A-Za-z\d@$!%*?&#^()\-_=+]{8,}$/;
@@ -74,17 +62,14 @@ const Signup = () => {
                 });
               })
               .catch((e) => {
-                console.log(e);
                 toast.error(e.message);
               });
           })
           .catch((e) => {
-            console.log(e);
             toast.error(e.message);
           });
       })
       .catch((e) => {
-        console.log(e);
         console.log(e.code);
         if (e.code === "auth/email-already-in-use") {
           toast.error(

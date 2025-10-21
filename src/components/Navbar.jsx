@@ -6,13 +6,11 @@ import { use } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
 import { ClockLoader } from "react-spinners";
-// import MyLink from "./MyLink";
 
 const Navbar = () => {
-  // const result = useContext(AuthContext);
-  const { user, signoutUserFunc, setUser, loading, setLoading } =
+
+  const { user, signoutUserFunc, setUser, loading } =
     use(AuthContext);
-  console.log(user);
 
   const handleSignout = () => {
     signoutUserFunc()
@@ -51,12 +49,11 @@ const Navbar = () => {
           <ClockLoader color="#e74c3c" />
         ) : user ? (
           <div className="text-center space-y-3">
-            {/* change popover-1 and --anchor-1 names. Use unique names for each dropdown */}
-            {/* For TSX uncomment the commented types below */}
+            
             <button
               className="btn"
               popoverTarget="popover-1"
-              style={{ anchorName: "--anchor-1" } /* as React.CSSProperties */}
+              style={{ anchorName: "--anchor-1" }}
             >
               <img
                 src={user?.photoURL || "https://via.placeholder.com/88"}
@@ -70,7 +67,7 @@ const Navbar = () => {
               popover="auto"
               id="popover-1"
               style={
-                { positionAnchor: "--anchor-1" } /* as React.CSSProperties */
+                { positionAnchor: "--anchor-1" } 
               }
             >
               <h2 className="text-xl font-semibold">{user?.displayName}</h2>

@@ -8,6 +8,7 @@ import { AuthContext } from "../context/AuthContext";
 
 const Signin = () => {
   const [show, setShow] = useState(false);
+  
   const {
     signInWithEmailAndPasswordFunc,
     signInWithEmailFunc,
@@ -17,6 +18,9 @@ const Signin = () => {
     setUser,
     user,
   } = useContext(AuthContext);
+
+  const emailRef = useRef(null);
+
   const location = useLocation();
   const from = location.state || "/";
   const navigate = useNavigate();
@@ -26,20 +30,14 @@ const Signin = () => {
     return;
   }
 
-  console.log(location);
-
-  const emailRef = useRef(null);
-
-  // const [email, setEmail] = useState(null);
 
   const handleSignin = (e) => {
     e.preventDefault();
     const email = e.target.email?.value;
     const password = e.target.password?.value;
-    console.log({ email, password });
+    
     signInWithEmailAndPasswordFunc(email, password)
       .then((res) => {
-        console.log(res);
         setLoading(false);
 
         if (!res.user?.emailVerified) {
@@ -51,16 +49,14 @@ const Signin = () => {
         navigate(from);
       })
       .catch((e) => {
-        console.log(e);
         toast.error(e.message);
       });
   };
 
   const handleGoogleSignin = () => {
-    console.log("google signin");
+    
     signInWithEmailFunc()
       .then((res) => {
-        console.log(res);
         setLoading(false);
         setUser(res.user);
         navigate(from);
@@ -75,7 +71,6 @@ const Signin = () => {
   const handleGithubSignin = () => {
     signInWithGithubFunc()
       .then((res) => {
-        console.log(res);
         setLoading(false);
         setUser(res.user);
         navigate(from);
@@ -87,10 +82,11 @@ const Signin = () => {
   };
 
   const handleForgetPassword = () => {
-    console.log();
+    
     const email = emailRef.current.value;
     sendPassResetEmailFunc(email)
       .then((res) => {
+        console.log(res);
         setLoading(false);
         toast.success("Check your email to reset password");
       })
