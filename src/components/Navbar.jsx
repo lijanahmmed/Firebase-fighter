@@ -23,7 +23,7 @@ const Navbar = () => {
       });
   };
 
-  console.log(loading);
+  
 
   return (
     <div className="bg-slate-100f py-2 border-b border-b-slate-300 ">
@@ -56,7 +56,7 @@ const Navbar = () => {
               style={{ anchorName: "--anchor-1" }}
             >
               <img
-                src={user?.photoURL || "https://via.placeholder.com/88"}
+                src={user?.photoURL}
                 className="h-[40px] w-[40px] rounded-full mx-auto"
                 alt=""
               />
